@@ -1,39 +1,79 @@
-[FAERS-Pipeline_README.md](https://github.com/user-attachments/files/31556803/FAERS-Pipeline_README.md)
-# FAERS Pipeline: FDA Adverse Event Data & Medical Coding
+readme = """
+# FAERS Q2 2026 Pharmacovigilance Data Analysis
 
-A pharmacovigilance-focused project analyzing drug safety data from the FDA Adverse Event Reporting System (FAERS), with a focus on standardized medical coding used in real-world drug safety monitoring.
+## Project Overview
 
-## Overview
+This project analyzes FDA Adverse Event Reporting System (FAERS) data from Q2 2026 to explore reported drug-related adverse events and identify frequently reported drug–reaction associations.
 
-This project processes FAERS data to identify and analyze adverse event patterns reported for [drug name / drug class — fill in]. It applies medical coding standards (e.g., MedDRA preferred terms) to structure unstructured adverse event data into a form usable for signal detection and safety reporting.
+## Objectives
 
-## What this project covers
+- Clean and structure FAERS data
+- Integrate demographic, drug, and adverse-event information
+- Identify frequently reported drugs
+- Identify commonly reported adverse reactions
+- Analyze drug–adverse reaction reporting patterns
+- Summarize available demographic and seriousness-related information
+- Generate reproducible outputs for pharmacovigilance analysis
 
-- **Data source:** FDA FAERS public dataset ([quarterly extract / year — fill in])
-- **Medical coding:** Mapping raw adverse event terms to standardized terminology ([MedDRA / WHO-DD — fill in which])
-- **Analysis:** [e.g., frequency of reported reactions, demographic breakdowns, signal detection basics — fill in what you actually did]
-- **Tools used:** Python, pandas, [any other libraries — fill in]
+## Dataset
 
-## Key findings
+Source: FDA Adverse Event Reporting System (FAERS)
 
-- [e.g., "X% of reports involved serious outcomes"]
-- [e.g., "Top 5 most frequently reported adverse events were..."]
-- [Add 2-3 concrete, quantified takeaways — this is the section recruiters read first]
+Data period: Q2 2026
 
-## Why this matters
+The analysis uses:
+- DEMO data
+- DRUG data
+- REAC data
 
-FAERS is one of the core real-world data sources used in pharmacovigilance for post-marketing drug safety surveillance. Understanding how to clean, code, and analyze this data reflects skills directly used in PV case processing, signal detection, and aggregate safety reporting roles.
+## Methodology
 
-## How to run
+1. Loaded FAERS source files using Python and pandas.
+2. Processed large files using chunk-based loading to reduce memory usage.
+3. Selected relevant variables from demographic, drug, and reaction datasets.
+4. Merged records using `primaryid` and `caseid`.
+5. Explored frequently reported drugs and adverse reactions.
+6. Generated drug–reaction frequency tables.
+7. Performed demographic and seriousness/outcome exploration.
+8. Created visualizations for key reporting patterns.
+9. Exported analysis-ready CSV files.
 
-```bash
-pip install -r requirements.txt
-jupyter notebook faers_pipeline_analysis.ipynb
-```
+## Key Outputs
 
-## Files
+- `FAERS_Q2_2026_merged_dataset.csv`
+- `FAERS_top_drugs.csv`
+- `FAERS_top_adverse_reactions.csv`
+- `FAERS_top_drug_reaction_pairs.csv`
 
-- `faers_pipeline_analysis.ipynb` — main analysis notebook
+## Tools & Technologies
 
----
-*Part of an ongoing portfolio of pharmacovigilance and pharma-data projects. See also: [Bioinformatics-Analysis](../Bioinformatics-Analysis), [ML-models](../ML-models).*
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Google Colab
+- GitHub
+- Pharmacovigilance / FAERS data
+
+## Important Interpretation Note
+
+FAERS is a spontaneous reporting database. Reporting frequencies should not be interpreted as incidence rates, causality, or proof that a drug caused an adverse event. Findings represent reported associations and require further pharmacovigilance assessment.
+
+## Skills Demonstrated
+
+- Pharmacovigilance data analysis
+- FAERS data processing
+- Data cleaning and validation
+- Large dataset handling
+- Data integration
+- Exploratory data analysis
+- Drug–event association analysis
+- Data visualization
+- Python/pandas
+- Reproducible analytical workflow
+"""
+
+with open("/content/README.md", "w") as f:
+    f.write(readme)
+
+print("✅ README.md created successfully")
